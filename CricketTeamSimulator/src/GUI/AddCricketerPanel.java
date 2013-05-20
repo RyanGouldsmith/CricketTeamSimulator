@@ -1,4 +1,4 @@
-package cricketsim;
+package GUI;
 
 public class AddCricketerPanel {
 

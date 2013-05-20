@@ -1,4 +1,4 @@
-package cricketsim;
+package GUI;
 
 /**
 * @author Ryan Gouldsmith (ryangouldsmith@gmail.com)
