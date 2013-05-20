@@ -1,10 +1,11 @@
 package cricketsim;
 
-import cricketsim.model.*;
-
+/**
+* @author Ryan Gouldsmith (ryangouldsmith@gmail.com)
+* @author Josh Tumath (josh@joshtumath.me.uk)
+*/
 public class Main {
 	public static void main(String[] args) {
-		//Add stuff in here
-		
-}
+		// TODO
+	}
 }
