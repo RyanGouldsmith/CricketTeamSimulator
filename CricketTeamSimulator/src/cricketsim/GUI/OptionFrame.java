@@ -13,7 +13,7 @@ public class OptionFrame extends JFrame implements ActionListener{
 	private JMenuBar jmb;
 	private JMenu menu;
 	private JMenuItem close;
-	OptionFrame(){
+	public OptionFrame(){
 		jmb = new JMenuBar();
 		setJMenuBar(jmb);
 		menu = new JMenu("File");
