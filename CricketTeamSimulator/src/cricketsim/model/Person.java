@@ -1,63 +1,88 @@
 package cricketsim.model;
+
+import java.util.Date;
+
+/**
+* @author Ryan Gouldsmith (ryangouldsmith@gmail.com)
+* @author Josh Tumath (josh@joshtumath.me.uk)
+*/
 public class Person {
+	/** Full name */
 	private String name;
+	
+	/** Gender */
 	private char gender;
-	private int age; 
-	private Position position;	
+	
+	/** Date of birth */
+	private Date dateOfBirth;
+	
+	/** Position on the field */
+	private Position position;
+	
+	/** The number of times this player has played a game */
 	private int appearances;
+	
+	/** ??? */
 	private int wickets;
-	private int runs;
-	private int averageRuns;
-	private boolean selected;
-	public Person(String a, char b, int c, Position d){
-		this.name = a; 
-		this.gender = b;
-		this.age= c; 
-		this.position = d;
-	}
-	public String getName(){
-		return name;
-	}
-	public char getGenger(){
-		return gender;
-	}
-	public int getAge(){
-		return age;
-	}
-	public Position getPosition(){
-		return position;
-	}
-	public void setRuns(int runs){
-		this.runs = runs;
-	}
-	public void setAppearances(int app){
-		this.appearances = app;
-	}
-	public void setWickets(int wick){
-		this.wickets = wick;
-	}
-	public int getRuns(){
-		return runs;
-	}
-	public int getAppearances(){
-		return appearances;
-	}
-	public int getWickets(){
-		return wickets;
-	}
-	private void averageRuns(){
-		averageRuns = (this.runs / this.appearances);
-	}
-	public int getAverageRuns(){
-		this.averageRuns();
-		return averageRuns;
-	}
-	public void setIsSelected(boolean select){
-		this.selected = select;
-	}
-	public boolean getIsSelected(){
-		return selected;
+	
+	/** The total number of runs this player has made */
+	private int totalRuns;
+	
+	/**
+	 * Constructs a new cricket player.
+	 * @param name
+	 * @param gender
+	 * @param dateOfBirth
+	 * @param position
+	 */
+	public Person(String name, char gender, Date dateOfBirth, Position position) {
+		this.name = name; 
+		this.gender = gender;
+		this.dateOfBirth= dateOfBirth; 
+		this.position = position;
 	}
 	
-
+	public String getName() {
+		return name;
+	}
+	
+	public char getGenger() {
+		return gender;
+	}
+	
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+	
+	public Position getPosition() {
+		return position;
+	}
+	
+	public int getRuns() {
+		return totalRuns;
+	}
+	
+	public void setRuns(int runs) {
+		this.totalRuns = runs;
+	}
+	
+	public int getAppearances() {
+		return appearances;
+	}
+	
+	public void setAppearances(int app) {
+		this.appearances = app;
+	}
+	
+	public int getWickets() {
+		return wickets;
+	}
+	
+	public void setWickets(int wick) {
+		this.wickets = wick;
+	}
+	
+	public int getAverageRuns() {
+		return totalRuns / appearances;
+	}
 }
