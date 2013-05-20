@@ -37,8 +37,16 @@ public class CollectionOfCricketers {
 	}
 	
 	/**
-	 * Works out the Teams average runs from the List of Cricketers
-	 * @returns the teams Average
+	 * Add a cricketer to the list
+	 * @param cricketer cricketer to be added to the list
+	 */
+	public void add(Cricketer cricketer) {
+		cricketers.add(cricketer);
+	}
+	
+	/**
+	 * Gets the team's average runs.
+	 * @returns the team's average
 	 */
 	public int getTeamAverageRuns(){
 		int average = 0;
@@ -51,7 +59,7 @@ public class CollectionOfCricketers {
 	}
 	
 	/**
-	 * Works out the total number of Appearances of the cricketers in the list
+	 * Gets the total number of appearances all the cricketers
 	 * @return the total number of appearances.
 	 */
 	public int getTotalAppearances(){
@@ -62,13 +70,5 @@ public class CollectionOfCricketers {
 		}
 		
 		return appearance;
-	}
-	
-	/**
-	 * Add a cricketer to the list
-	 * @param cricketer cricketer to be added to the list
-	 */
-	public void add(Cricketer cricketer) {
-		cricketers.add(cricketer);
 	}
 }

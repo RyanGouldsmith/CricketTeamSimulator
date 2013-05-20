@@ -8,7 +8,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-public class OptionFrame extends JFrame implements ActionListener{
+public class OptionFrame extends JFrame implements ActionListener {
 	private OptionPanel op;
 	private JMenuBar jmb;
 	private JMenu menu;
