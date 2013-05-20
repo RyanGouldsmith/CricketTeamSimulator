@@ -1,4 +1,4 @@
-package GUI;
+package cricketsim.GUI;
 
 import javax.swing.JPanel;
 

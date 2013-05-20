@@ -1,4 +1,4 @@
-package GUI;
+package cricketsim.GUI;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
