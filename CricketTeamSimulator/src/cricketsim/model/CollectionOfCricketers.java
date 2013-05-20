@@ -17,10 +17,10 @@ public class CollectionOfCricketers {
 	 * Get the total runs of all cricketers.
 	 * @return the total runs of all cricketers
 	 */
-	public int getTotalRuns(){
+	public int getTotalRuns() {
 		int total = 0;
 		
-		for (Cricketer cricketer: cricketers){
+		for (Cricketer cricketer: cricketers) {
 			total += cricketer.getRuns();
 		}
 		
@@ -32,7 +32,7 @@ public class CollectionOfCricketers {
 	 * @param index position in the list
 	 * @return a cricketer
 	 */
-	public Cricketer getCricketer(int index){
+	public Cricketer getCricketer(int index) {
 		return cricketers.get(index);
 	}
 	
@@ -40,7 +40,7 @@ public class CollectionOfCricketers {
 	 * Add a cricketer to the list
 	 * @param cricketer cricketer to be added to the list
 	 */
-	public void add(Cricketer cricketer){
+	public void add(Cricketer cricketer) {
 		cricketers.add(cricketer);
 	}
 	
