@@ -2,6 +2,7 @@ package cricketsim.model;
 
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * Manages a list of cricketers.
  * 
@@ -11,6 +12,7 @@ import java.util.List;
 public class CollectionOfCricketers {
 	/** List of cricketers */
 	private List<Cricketer> cricketers = new ArrayList<Cricketer>();
+	
 	/**
 	 * Get the total runs of all cricketers.
 	 * @return the total runs of all cricketers
@@ -33,30 +35,34 @@ public class CollectionOfCricketers {
 	public Cricketer getCricketer(int index) {
 		return cricketers.get(index);
 	}
+	
 	/**
 	 * Works out the Teams average runs from the List of Cricketers
 	 * @returns the teams Average
 	 */
-	
 	public int getTeamAverageRuns(){
-		int average =0;
+		int average = 0;
+		
 		for (Cricketer cricketer: cricketers){
-			average += getTotalRuns()/getTotalAppearances();
+			average += getTotalRuns() / getTotalAppearances();
 		}
+		
 		return average;
 	}
+	
 	/**
 	 * Works out the total number of Appearances of the cricketers in the list
 	 * @return the total number of appearances.
 	 */
 	public int getTotalAppearances(){
 		int appearance = 0;
+		
 		for (Cricketer cricketer: cricketers){
 			appearance += cricketer.getAppearances();
 		}
+		
 		return appearance;
 	}
-
 	
 	/**
 	 * Add a cricketer to the list
@@ -65,5 +71,4 @@ public class CollectionOfCricketers {
 	public void add(Cricketer cricketer) {
 		cricketers.add(cricketer);
 	}
-	
 }
