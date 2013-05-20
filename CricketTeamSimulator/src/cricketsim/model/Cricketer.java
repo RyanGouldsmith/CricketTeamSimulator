@@ -38,7 +38,7 @@ public class Cricketer {
 	public Cricketer(String name, char gender, Date dateOfBirth, Position position) {
 		this.name = name; 
 		this.gender = gender;
-		this.dateOfBirth= dateOfBirth; 
+		this.dateOfBirth = dateOfBirth; 
 		this.position = position;
 	}
 	
@@ -70,16 +70,16 @@ public class Cricketer {
 		return appearances;
 	}
 	
-	public void setAppearances(int app) {
-		this.appearances = app;
+	public void setAppearances(int appearances) {
+		this.appearances = appearances;
 	}
 	
 	public int getWickets() {
 		return wickets;
 	}
 	
-	public void setWickets(int wick) {
-		this.wickets = wick;
+	public void setWickets(int wickets) {
+		this.wickets = wickets;
 	}
 	
 	public int getAverageRuns() {
