@@ -33,6 +33,29 @@ public class CollectionOfCricketers {
 	public Cricketer getCricketer(int index) {
 		return cricketers.get(index);
 	}
+	/**
+	 * Works out the Teams average runs from the List of Cricketers
+	 * @returns the teams Average
+	 */
+	
+	public int getTeamAverageRuns(){
+		int average =0;
+		for (Cricketer cricketer: cricketers){
+			average += getTotalRuns()/getTotalAppearances();
+		}
+		return average;
+	}
+	/**
+	 * Works out the total number of Appearances of the cricketers in the list
+	 * @return the total number of appearances.
+	 */
+	public int getTotalAppearances(){
+		int appearance = 0;
+		for (Cricketer cricketer: cricketers){
+			appearance += cricketer.getAppearances();
+		}
+		return appearance;
+	}
 
 	
 	/**
