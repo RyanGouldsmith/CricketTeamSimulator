@@ -6,6 +6,9 @@ package cricketsim;
 */
 public class Main {
 	public static void main(String[] args) {
-		// TODO
-	}
+
+		OptionFrame f = new OptionFrame();
+		f.setVisible(true);
+		
+}
 }
