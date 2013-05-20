@@ -6,7 +6,7 @@ import java.util.Date;
 * @author Ryan Gouldsmith (ryangouldsmith@gmail.com)
 * @author Josh Tumath (josh@joshtumath.me.uk)
 */
-public class Person {
+public class Cricketer {
 	/** Full name */
 	private String name;
 	
@@ -35,7 +35,7 @@ public class Person {
 	 * @param dateOfBirth
 	 * @param position
 	 */
-	public Person(String name, char gender, Date dateOfBirth, Position position) {
+	public Cricketer(String name, char gender, Date dateOfBirth, Position position) {
 		this.name = name; 
 		this.gender = gender;
 		this.dateOfBirth= dateOfBirth; 
