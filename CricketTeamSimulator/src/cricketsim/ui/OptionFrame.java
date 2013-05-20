@@ -1,4 +1,4 @@
-package cricketsim.GUI;
+package cricketsim.ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

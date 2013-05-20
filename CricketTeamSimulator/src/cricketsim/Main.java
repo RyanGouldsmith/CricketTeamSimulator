@@ -4,7 +4,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import cricketsim.GUI.OptionFrame;
+import cricketsim.ui.OptionFrame;
 
 /**
 * @author Ryan Gouldsmith (ryangouldsmith@gmail.com)
