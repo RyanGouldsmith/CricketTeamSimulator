@@ -1,7 +1,10 @@
 package cricketsim;
 
+import cricketsim.model.*;
+
 public class Main {
 	public static void main(String[] args) {
-		System.out.println("Hello World!");
-	}
+		//Add stuff in here
+		
+}
 }
