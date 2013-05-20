@@ -11,7 +11,7 @@ public class Cricketer {
 	private String name;
 	
 	/** Gender */
-	private char gender;
+	private Gender gender;
 	
 	/** Date of birth */
 	private Date dateOfBirth;
@@ -35,7 +35,7 @@ public class Cricketer {
 	 * @param dateOfBirth
 	 * @param position
 	 */
-	public Cricketer(String name, char gender, Date dateOfBirth, Position position) {
+	public Cricketer(String name, Gender gender, Date dateOfBirth, Position position) {
 		this.name = name; 
 		this.gender = gender;
 		this.dateOfBirth = dateOfBirth; 
@@ -46,7 +46,7 @@ public class Cricketer {
 		return name;
 	}
 	
-	public char getGenger() {
+	public Gender getGenger() {
 		return gender;
 	}
 	
