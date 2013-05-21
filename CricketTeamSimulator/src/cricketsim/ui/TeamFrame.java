@@ -17,6 +17,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
+import cricketsim.model.CollectionOfCricketers;
+
 public class TeamFrame extends JFrame implements ActionListener {
 	private static final long serialVersionUID = -4850706096538947479L;
 	
@@ -30,11 +32,11 @@ public class TeamFrame extends JFrame implements ActionListener {
 		
 		// TODO: Support scrolling
 		// XXX: Change this to store a list of Cricketers
-		DefaultListModel<String> listModel = new DefaultListModel<>();
-		listModel.addElement("Foo");
-		listModel.addElement("Bar");
-		listModel.addElement("Baz");
-		JList<String> teamList = new JList<>(listModel);
+		DefaultListModel<CollectionOfCricketers> listModel = new DefaultListModel<CollectionOfCricketers>();
+		//listModel.addElement("Foo");
+		//listModel.addElement("Bar");
+		//listModel.addElement("Baz");
+		JList<CollectionOfCricketers> teamList = new JList<>(listModel);
 		
 		JPanel teamManagerControls = new JPanel();
 		teamManagerControls.setLayout(new BoxLayout(teamManagerControls, BoxLayout.Y_AXIS));
