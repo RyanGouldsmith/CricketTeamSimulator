@@ -19,8 +19,6 @@ public class Main {
 				|InstantiationException|IllegalAccessException e) {
 			e.printStackTrace();
 		}
-		
-		// Open the app's window.
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
