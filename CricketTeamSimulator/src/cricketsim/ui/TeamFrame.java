@@ -33,9 +33,8 @@ public class TeamFrame extends JFrame implements ActionListener {
 		// TODO: Support scrolling
 		// XXX: Change this to store a list of Cricketers
 		DefaultListModel<CollectionOfCricketers> listModel = new DefaultListModel<CollectionOfCricketers>();
-		//listModel.addElement("Foo");
-		//listModel.addElement("Bar");
-		//listModel.addElement("Baz");
+	//	listModel.addElement("Foo");
+	///	listModel.addElement("Baz");
 		JList<CollectionOfCricketers> teamList = new JList<>(listModel);
 		
 		JPanel teamManagerControls = new JPanel();
@@ -74,34 +73,13 @@ public class TeamFrame extends JFrame implements ActionListener {
 		
 		setLocationRelativeTo(null); // Centre window in middle of screen
 	}
-	
+	/**
+	 * 
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand() == "") {
 			
 		}
 	}
-	
-	/* private OptionPanel op;
-	private JMenuBar jmb;
-	private JMenu menu;
-	private JMenuItem close;
-	public TeamFrame(){
-		jmb = new JMenuBar();
-		setJMenuBar(jmb);
-		menu = new JMenu("File");
-		close = new JMenuItem("Exit");
-		jmb.add(menu);
-		menu.add(close);
-		close.addActionListener(this);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-		setSize(400,400);
-		op = new OptionPanel();
-		this.add(op);
-	}
-	public void actionPerformed(ActionEvent e){
-		if (e.getSource() == close){
-			System.exit(0);
-		}
-	} */
 }
