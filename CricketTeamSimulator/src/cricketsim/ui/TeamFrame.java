@@ -13,15 +13,27 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
 import cricketsim.model.CollectionOfCricketers;
+import cricketsim.model.Cricketer;
 
-public class TeamFrame extends JFrame implements ActionListener {
+/**
+ * The frame where the user can manage the team of cricketers
+ * @author Ryan Gouldsmith (ryangouldsmith@gmail.com)
+ * @author Josh Tumath (josh@joshtumath.me.uk)
+ */
+public class TeamFrame extends JFrame {
 	private static final long serialVersionUID = -4850706096538947479L;
 	
+	private DefaultListModel<CollectionOfCricketers> cricketerList = new DefaultListModel<>();
+	
+	/**
+	 * Construct a new window to manage a team of cricketers
+	 */
 	public TeamFrame() {
 		setTitle("Cricket Team Simulator");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -31,33 +43,45 @@ public class TeamFrame extends JFrame implements ActionListener {
 		teamManager.setBorder(new EmptyBorder(10, 10, 10, 10));
 		
 		// TODO: Support scrolling
-		// XXX: Change this to store a list of Cricketers
-		DefaultListModel<CollectionOfCricketers> listModel = new DefaultListModel<CollectionOfCricketers>();
-	//	listModel.addElement("Foo");
-	///	listModel.addElement("Baz");
-		JList<CollectionOfCricketers> teamList = new JList<>(listModel);
+		
+		JList<CollectionOfCricketers> teamList = new JList<>(cricketerList);
 		
 		JPanel teamManagerControls = new JPanel();
 		teamManagerControls.setLayout(new BoxLayout(teamManagerControls, BoxLayout.Y_AXIS));
 		teamManagerControls.setBorder(new EmptyBorder(0, 10, 0, 0));
 		
-		JButton btnAdd = new JButton("Add...");
-		btnAdd.setMinimumSize(btnAdd.getPreferredSize());
-		btnAdd.setMaximumSize(btnAdd.getPreferredSize());
+		JButton btn;
 		
-		JButton btnEdit = new JButton("Edit...");
-		btnEdit.setMinimumSize(btnAdd.getPreferredSize());
-		btnEdit.setMaximumSize(btnAdd.getPreferredSize());
+		btn = new JButton("Add...");
+		btn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				addCricketer();
+			}
+		});
+		teamManagerControls.add(btn);
 		
-		JButton btnDelete = new JButton("Delete");
-		btnDelete.setMinimumSize(btnAdd.getPreferredSize());
-		btnDelete.setMaximumSize(btnAdd.getPreferredSize());
-		
-		teamManagerControls.add(btnAdd);
 		teamManagerControls.add(Box.createVerticalStrut(5));
-		teamManagerControls.add(btnEdit);
+		
+		btn = new JButton("Edit...");
+		btn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				editCricketer(null);
+			}
+		});
+		teamManagerControls.add(btn);
+		
 		teamManagerControls.add(Box.createVerticalStrut(5));
-		teamManagerControls.add(btnDelete);
+		
+		btn = new JButton("Delete");
+		btn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				deleteCricketer(null);
+			}
+		});
+		teamManagerControls.add(btn);
 		
 		teamManager.add(teamList, BorderLayout.CENTER);
 		teamManager.add(teamManagerControls, BorderLayout.EAST);
@@ -66,20 +90,53 @@ public class TeamFrame extends JFrame implements ActionListener {
 		playerSelector.setBorder(new TitledBorder(
 				new LineBorder(Color.black),
 				"Select cricketers for a team"));
-		// TODO: Add content to the player selector
+		
+		// TODO: Add content to the playerSelector panel
 		
 		getContentPane().add(teamManager, BorderLayout.CENTER);
 		getContentPane().add(playerSelector, BorderLayout.SOUTH);
 		
 		setLocationRelativeTo(null); // Centre window in middle of screen
 	}
+	
 	/**
-	 * 
+	 * Open the editor window to add a new cricketer to the list
 	 */
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		if (e.getActionCommand() == "") {
-			
-		}
+	private void addCricketer() {
+		SwingUtilities.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				EditorFrame window = new EditorFrame();
+				window.setVisible(true);
+			}
+		});
+		
+		// TODO: Find a way to detect when the dialog window closes so that the
+		//       new cricketer can be added to the cricketerList.
+	}
+	
+	/**
+	 * Open the editor window to edit the currently selected cricketer in the
+	 * list
+	 * @param cricketer the selected cricketer
+	 */
+	private void editCricketer(final Cricketer cricketer) {
+		SwingUtilities.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				EditorFrame window = new EditorFrame(cricketer);
+				window.setVisible(true);
+			}
+		});
+		
+		// TODO: Get the selected cricketer in the cricketerList and open it
+	}
+	
+	/**
+	 * Delete the currently selected cricketer in the list
+	 * @param cricketer
+	 */
+	private void deleteCricketer(final Cricketer cricketer) {
+		// TODO: Get the selected cricketer in the cricketerList and delete it
 	}
 }
