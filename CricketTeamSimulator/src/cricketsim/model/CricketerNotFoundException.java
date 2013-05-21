@@ -1,16 +1,15 @@
 package cricketsim.model;
 
-import javax.swing.JOptionPane;
 /**
- * Cricketer NotFoundException thrown at runtime if they can't find the cricketer
+ * Signals that a Cricketer cannot be matched to one that already exist in the
+ * CollectionOfCricketers.
  * @author Ryan Gouldsmith (ryangouldsmith@gmail.com)
- * @author Josh Tumath(josh@joshtumath.me.uk)
- *
+ * @author Josh Tumath (josh@joshtumath.me.uk)
  */
-public class CricketerNotFoundException extends Exception {
-	
-	CricketerNotFoundException(){
-		JOptionPane.showMessageDialog(null, "Unable to find the cricketer!");
-	}
+public class CricketerNotFoundException extends RuntimeException {
+	private static final long serialVersionUID = 6293727980279543862L;
 
+	CricketerNotFoundException () {
+		super();
+	}
 }
