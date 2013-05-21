@@ -19,6 +19,11 @@ public class EditorFrame extends JFrame {
 		// TODO: Create the frame's content
 	}
 	
+	/**
+	 * Construct a frame with data from an already existing cricketer to
+	 * edit their details.
+	 * @param cricketer a cricketer
+	 */
 	public EditorFrame(Cricketer cricketer) {
 		this();
 		
