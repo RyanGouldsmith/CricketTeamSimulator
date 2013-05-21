@@ -4,7 +4,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import cricketsim.ui.OptionFrame;
+import cricketsim.ui.TeamFrame;
 
 /**
 * @author Ryan Gouldsmith (ryangouldsmith@gmail.com)
@@ -24,7 +24,7 @@ public class Main {
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				OptionFrame mainWindow = new OptionFrame();
+				TeamFrame mainWindow = new TeamFrame();
 				mainWindow.setVisible(true);
 			}
 		});
