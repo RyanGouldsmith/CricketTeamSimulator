@@ -20,6 +20,7 @@ import javax.swing.border.TitledBorder;
 
 import cricketsim.model.CollectionOfCricketers;
 import cricketsim.model.Cricketer;
+import cricketsim.model.CricketerNotFoundException;
 
 /**
  * The frame where the user can manage the team of cricketers
@@ -29,8 +30,8 @@ import cricketsim.model.Cricketer;
 public class TeamFrame extends JFrame {
 	private static final long serialVersionUID = -4850706096538947479L;
 	
-	private DefaultListModel<CollectionOfCricketers> cricketerList = new DefaultListModel<>();
-	
+	private DefaultListModel<CollectionOfCricketers> cricketerList = new DefaultListModel<CollectionOfCricketers>();
+	private CollectionOfCricketers cricketerCollection = new CollectionOfCricketers();
 	/**
 	 * Construct a new window to manage a team of cricketers
 	 */
@@ -78,7 +79,10 @@ public class TeamFrame extends JFrame {
 		btn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				deleteCricketer(null);
+				try {
+					deleteCricketer(null);
+				} catch (CricketerNotFoundException e1) {
+				}
 			}
 		});
 		teamManagerControls.add(btn);
@@ -134,9 +138,11 @@ public class TeamFrame extends JFrame {
 	
 	/**
 	 * Delete the currently selected cricketer in the list
+	 * @param cricketer
+	 * @throws CricketerNotFoundException 
 	 * @param cricketer the selected cricketer
 	 */
-	private void deleteCricketer(final Cricketer cricketer) {
-		// TODO: Get the selected cricketer in the cricketerList and delete it
+	private void deleteCricketer(final Cricketer cricketer) throws CricketerNotFoundException {
+		cricketerCollection.removeCricketer(cricketer);
 	}
 }
