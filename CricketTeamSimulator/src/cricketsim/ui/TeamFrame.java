@@ -134,7 +134,7 @@ public class TeamFrame extends JFrame {
 	
 	/**
 	 * Delete the currently selected cricketer in the list
-	 * @param cricketer
+	 * @param cricketer the selected cricketer
 	 */
 	private void deleteCricketer(final Cricketer cricketer) {
 		// TODO: Get the selected cricketer in the cricketerList and delete it
