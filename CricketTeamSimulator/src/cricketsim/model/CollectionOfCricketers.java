@@ -71,7 +71,10 @@ public class CollectionOfCricketers {
 		
 		return appearance;
 	}
-	
+	/**
+	 * Gets the total number of wickets of all the cricketers
+	 * @return the total number of wickets
+	 */
 	public int getTotalWickets(){
 		int wicketTotal = 0;
 		for (Cricketer cricketer: cricketers){
