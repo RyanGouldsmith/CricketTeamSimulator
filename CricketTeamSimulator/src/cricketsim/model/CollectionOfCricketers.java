@@ -43,20 +43,20 @@ public class CollectionOfCricketers {
 	public void add(Cricketer cricketer) {
 		cricketers.add(cricketer);
 	}
+	
 	/**
 	 * Removes the Cricketer from the list based on a search
 	 * @param searchedCricketer searches for the named cricketer
-	 * @throws CricketerNotFoundException if there is an error, and can't be found.
+	 * @throws CricketerNotFoundException if the cricketer selected does not
+	 *                                    exist in the model
 	 */
-	
-	public void removeCricketer(Cricketer searchedCricketer) throws CricketerNotFoundException{
-		
-				for (Cricketer cricketer: cricketers){
-						if (cricketer.equals(searchedCricketer)){
-								cricketers.remove(searchedCricketer);
-						} 
-				}
-			}
+	public void remove(Cricketer searchedCricketer) throws CricketerNotFoundException {
+		for (Cricketer cricketer: cricketers){
+			if (cricketer.equals(searchedCricketer)){
+				cricketers.remove(searchedCricketer);
+			} 
+		}
+	}
 	
 	/**
 	 * Gets the team's average runs.
