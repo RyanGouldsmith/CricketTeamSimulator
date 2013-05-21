@@ -1,6 +1,12 @@
 package cricketsim.ui;
 
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
 import cricketsim.model.Cricketer;
 
@@ -16,7 +22,20 @@ public class EditorFrame extends JFrame {
 	 * Construct a frame with empty fields to create a new cricketer
 	 */
 	public EditorFrame() {
-		// TODO: Create the frame's content
+		setTitle("Cricket Team Simulator");
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setMinimumSize(new Dimension(400, 450));
+		JPanel editorManager = new JPanel(new BorderLayout());
+		editorManager.setBorder(new EmptyBorder(10, 10, 10, 10));
+		
+		JPanel editorManagerControls = new JPanel();
+		editorManagerControls.setLayout(new BoxLayout(editorManagerControls, BoxLayout.Y_AXIS));
+		editorManagerControls.setBorder(new EmptyBorder(0, 10, 0, 0));
+		
+		
+		
+		getContentPane().add(editorManager, BorderLayout.CENTER);
+		setLocationRelativeTo(null); // Centre window in middle of screen
 	}
 	
 	/**
