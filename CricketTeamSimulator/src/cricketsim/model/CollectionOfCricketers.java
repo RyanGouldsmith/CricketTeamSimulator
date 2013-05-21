@@ -71,4 +71,12 @@ public class CollectionOfCricketers {
 		
 		return appearance;
 	}
+	
+	public int getTotalWickets(){
+		int wicketTotal = 0;
+		for (Cricketer cricketer: cricketers){
+			wicketTotal += cricketer.getWickets();
+		}
+		return wicketTotal;
+	}
 }
