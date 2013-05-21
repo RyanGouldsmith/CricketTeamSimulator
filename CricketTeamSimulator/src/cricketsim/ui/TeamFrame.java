@@ -64,8 +64,8 @@ public class TeamFrame extends JFrame implements ActionListener {
 		JPanel playerSelector = new JPanel();
 		playerSelector.setBorder(new TitledBorder(
 				new LineBorder(Color.black),
-				"A JPanel"));
-		// TODO:
+				"Select cricketers for a team"));
+		// TODO: Add content to the player selector
 		
 		getContentPane().add(teamManager, BorderLayout.CENTER);
 		getContentPane().add(playerSelector, BorderLayout.SOUTH);
