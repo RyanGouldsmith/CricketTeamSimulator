@@ -85,6 +85,7 @@ public class CollectionOfCricketers {
 		
 		return appearance;
 	}
+	
 	/**
 	 * Gets the total number of wickets of all the cricketers
 	 * @return the total number of wickets
