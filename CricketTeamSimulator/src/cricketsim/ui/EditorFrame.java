@@ -23,7 +23,7 @@ public class EditorFrame extends JFrame {
 	 */
 	public EditorFrame() {
 		setTitle("Cricket Team Simulator");
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setMinimumSize(new Dimension(400, 450));
 		JPanel editorManager = new JPanel(new BorderLayout());
 		editorManager.setBorder(new EmptyBorder(10, 10, 10, 10));
