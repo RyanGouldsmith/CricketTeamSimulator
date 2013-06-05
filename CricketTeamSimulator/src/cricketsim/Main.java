@@ -19,7 +19,6 @@ public class Main {
 				|InstantiationException|IllegalAccessException e) {
 			e.printStackTrace();
 		}
-		
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
