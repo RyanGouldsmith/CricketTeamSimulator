@@ -46,7 +46,7 @@ public class TeamFrame extends JFrame {
 	 * Construct a new window to manage a team of cricketers
 	 */
 	public TeamFrame() {
-		setTitle("Cricket Team Simulator");
+		super("Cricket Team Simulator");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setMinimumSize(new Dimension(550, 500));
 		
