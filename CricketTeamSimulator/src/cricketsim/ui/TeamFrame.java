@@ -8,18 +8,12 @@ import java.awt.event.ActionListener;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
-import javax.swing.ButtonGroup;
 import javax.swing.DefaultListModel;
-import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 import javax.swing.SwingUtilities;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
@@ -36,19 +30,15 @@ import cricketsim.model.CricketerNotFoundException;
 public class TeamFrame extends JFrame {
 	private static final long serialVersionUID = -4850706096538947479L;
 	
-	/** The model containing cricketers. */
-	private CollectionOfCricketers cricketers = new CollectionOfCricketers();
-	
-	/** Lists all of the cricketers being displayed in the list form item. */
-	private DefaultListModel<CollectionOfCricketers> cricketerList = new DefaultListModel<>();
-	
+	private DefaultListModel<CollectionOfCricketers> cricketerList = new DefaultListModel<CollectionOfCricketers>();
+	private CollectionOfCricketers cricketerCollection = new CollectionOfCricketers();
 	/**
 	 * Construct a new window to manage a team of cricketers
 	 */
 	public TeamFrame() {
-		super("Cricket Team Simulator");
+		setTitle("Cricket Team Simulator");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setMinimumSize(new Dimension(550, 500));
+		setMinimumSize(new Dimension(400, 450));
 		
 		JPanel teamManager = new JPanel(new BorderLayout());
 		teamManager.setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -89,7 +79,10 @@ public class TeamFrame extends JFrame {
 		btn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				deleteCricketer(null);
+				try {
+					deleteCricketer(null);
+				} catch (CricketerNotFoundException e1) {
+				}
 			}
 		});
 		teamManagerControls.add(btn);
@@ -102,68 +95,11 @@ public class TeamFrame extends JFrame {
 				new LineBorder(Color.black),
 				"Select cricketers for a team"));
 		
-		JLabel lblExplanation = new JLabel("Use the stats of your team members to create the perfect team.");
-		
-		JLabel lblGender = new JLabel("Gender:");
-		JRadioButton rdbtnMale = new JRadioButton("Male");
-		JRadioButton rdbtnFemale = new JRadioButton("Female");
-		ButtonGroup genderGroup = new ButtonGroup();
-	    genderGroup.add(rdbtnMale);
-	    genderGroup.add(rdbtnFemale);
-		
-		JLabel lblTypeOfTeam = new JLabel("Type of team:");
-		JButton btnAttack = new JButton("Attack...");
-		JButton btnDefence = new JButton("Defence...");
-		JButton btnNeutral = new JButton("Neutral...");
-		
-		GroupLayout groupLayout = new GroupLayout(playerSelector);
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblExplanation)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblGender)
-								.addComponent(lblTypeOfTeam))
-							.addGap(32)
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(btnAttack)
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(btnDefence)
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(btnNeutral))
-								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(rdbtnMale)
-									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addComponent(rdbtnFemale)))))
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(lblExplanation)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblGender)
-						.addComponent(rdbtnMale)
-						.addComponent(rdbtnFemale))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblTypeOfTeam)
-						.addComponent(btnAttack)
-						.addComponent(btnDefence)
-						.addComponent(btnNeutral)))
-		);
-		playerSelector.setLayout(groupLayout);
+		// TODO: Add content to the playerSelector panel
 		
 		getContentPane().add(teamManager, BorderLayout.CENTER);
 		getContentPane().add(playerSelector, BorderLayout.SOUTH);
 		
-		pack();
 		setLocationRelativeTo(null); // Centre window in middle of screen
 	}
 	
@@ -192,7 +128,7 @@ public class TeamFrame extends JFrame {
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				EditorFrame window = new EditorFrame(cricketer);
+				EditorFrame window = new EditorFrame();
 				window.setVisible(true);
 			}
 		});
@@ -202,15 +138,11 @@ public class TeamFrame extends JFrame {
 	
 	/**
 	 * Delete the currently selected cricketer in the list
+	 * @param cricketer
+	 * @throws CricketerNotFoundException 
 	 * @param cricketer the selected cricketer
-	 * @throws CricketerNotFoundException if the cricketer selected does not
-	 *                                    exist in the model
 	 */
-	private void deleteCricketer(final Cricketer cricketer) {
-		try {
-			cricketers.remove(cricketer);
-		} catch (CricketerNotFoundException e) {
-			e.printStackTrace();
-		}
+	private void deleteCricketer(final Cricketer cricketer) throws CricketerNotFoundException {
+		cricketerCollection.removeCricketer(cricketer);
 	}
 }
