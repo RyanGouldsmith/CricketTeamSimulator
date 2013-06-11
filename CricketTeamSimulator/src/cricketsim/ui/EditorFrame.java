@@ -24,11 +24,15 @@ import java.awt.Color;
 import javax.swing.JEditorPane;
 import java.awt.Font;
 import com.jgoodies.forms.factories.DefaultComponentFactory;
+
+import cricketsim.model.Cricketer;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class EditorFrame extends JDialog {
 	private JTextField nameField;
+	private String name = "";
 
 	/**
 	 * Create the dialog.
@@ -75,6 +79,8 @@ public class EditorFrame extends JDialog {
 			nameField = new JTextField();
 			getContentPane().add(nameField, "4, 4, 3, 1, fill, top");
 			nameField.setColumns(10);
+			
+			
 		}
 		{
 			JLabel genderLabel = new JLabel("Gender");
@@ -127,6 +133,9 @@ public class EditorFrame extends JDialog {
 			JButton okButton = new JButton("OK");
 			okButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
+					getAllContents();
+					System.out.print(name);
+			
 				}
 			});
 			getContentPane().add(okButton, "4, 16, left, top");
@@ -139,5 +148,11 @@ public class EditorFrame extends JDialog {
 			cancelButton.setActionCommand("Cancel");
 		}
 	}
+	
+	protected void getAllContents(){
+		name = nameField.getText();
+		
+	}
+	
 
 }
