@@ -141,6 +141,8 @@ public class EditorFrame extends JDialog {
 			getContentPane().add(cancelButton, "6, 16, left, top");
 			cancelButton.setActionCommand("Cancel");
 		}
+		
+		setLocationRelativeTo(null); // Centre window in middle of screen
 	}
 	
 	protected void getAllContents(){
