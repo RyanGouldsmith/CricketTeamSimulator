@@ -11,6 +11,7 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.RowSpec;
 
+import cricketsim.model.CollectionOfCricketers;
 import cricketsim.model.Cricketer;
 import cricketsim.model.Gender;
 import cricketsim.model.Position;
@@ -41,14 +42,16 @@ public class EditorFrame extends JDialog {
 	private JSpinner appearanceSelector;
 	private JSpinner wicketSelector;
 	private JSpinner totalRunSelector;
+	private CollectionOfCricketers cc;
 
 	/**
 	 * Create the dialog.
+	 * @param cricketerCollection 
 	 */
-	public EditorFrame(JFrame owner) {
+	public EditorFrame(JFrame owner, CollectionOfCricketers cricketerCollection) {
 		super(owner, true);
 		setBounds(100, 100, 305, 342);
-		
+		cc = cricketerCollection;
 		getContentPane().setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.RELATED_GAP_COLSPEC,
 				ColumnSpec.decode("106px"),
@@ -214,5 +217,7 @@ public class EditorFrame extends JDialog {
 		newCricketer.setAppearances(appearances);
 		newCricketer.setWickets(wickets);
 		newCricketer.setTotalRuns(totalRuns);
+		cc.add(newCricketer);
+		System.out.print(cc.getTotalAppearances());
 	}
 }
