@@ -28,6 +28,8 @@ public class Cricketer {
 	/** The total number of runs this player has made */
 	private int totalRuns;
 	
+	private CollectionOfCricketers listOfCricketers;
+	
 	/**
 	 * Constructs a new cricket player.
 	 * @param name
@@ -40,8 +42,9 @@ public class Cricketer {
 		this.gender = gender;
 		this.dateOfBirth = dateOfBirth; 
 		this.position = position;
+		listOfCricketers = new CollectionOfCricketers();
+		listOfCricketers.add(this);
 	}
-	
 	public String getName() {
 		return name;
 	}
