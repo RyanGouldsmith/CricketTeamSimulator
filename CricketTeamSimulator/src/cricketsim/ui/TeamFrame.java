@@ -8,17 +8,11 @@ import java.awt.event.ActionListener;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
-import javax.swing.ButtonGroup;
 import javax.swing.DefaultListModel;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
@@ -101,68 +95,11 @@ public class TeamFrame extends JFrame {
 				new LineBorder(Color.black),
 				"Select cricketers for a team"));
 		
-		JLabel lblExplanation = new JLabel("Use the stats of your team members to create the perfect team.");
-
-		JLabel lblGender = new JLabel("Gender:");
-		JRadioButton rdbtnMale = new JRadioButton("Male");
-		JRadioButton rdbtnFemale = new JRadioButton("Female");
-		ButtonGroup genderGroup = new ButtonGroup();
-		genderGroup.add(rdbtnMale);
-		genderGroup.add(rdbtnFemale);
-
-		JLabel lblTypeOfTeam = new JLabel("Type of team:");
-		JButton btnAttack = new JButton("Attack...");
-		JButton btnDefence = new JButton("Defence...");
-		JButton btnNeutral = new JButton("Neutral...");
-
-		GroupLayout groupLayout = new GroupLayout(playerSelector);
-		groupLayout.setHorizontalGroup(
-				groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-						.addContainerGap()
-						.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblExplanation)
-								.addGroup(groupLayout.createSequentialGroup()
-										.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-												.addComponent(lblGender)
-												.addComponent(lblTypeOfTeam))
-												.addGap(32)
-												.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-														.addGroup(groupLayout.createSequentialGroup()
-																.addComponent(btnAttack)
-																.addPreferredGap(ComponentPlacement.RELATED)
-																.addComponent(btnDefence)
-																.addPreferredGap(ComponentPlacement.RELATED)
-																.addComponent(btnNeutral))
-																.addGroup(groupLayout.createSequentialGroup()
-																		.addComponent(rdbtnMale)
-																		.addPreferredGap(ComponentPlacement.UNRELATED)
-																		.addComponent(rdbtnFemale)))))
-																		.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-				);
-		groupLayout.setVerticalGroup(
-				groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-						.addContainerGap()
-						.addComponent(lblExplanation)
-						.addPreferredGap(ComponentPlacement.UNRELATED)
-						.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-								.addComponent(lblGender)
-								.addComponent(rdbtnMale)
-								.addComponent(rdbtnFemale))
-								.addPreferredGap(ComponentPlacement.UNRELATED)
-								.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-										.addComponent(lblTypeOfTeam)
-										.addComponent(btnAttack)
-										.addComponent(btnDefence)
-										.addComponent(btnNeutral)))
-				);
-		playerSelector.setLayout(groupLayout);
+		// TODO: Add content to the playerSelector panel
 		
 		getContentPane().add(teamManager, BorderLayout.CENTER);
 		getContentPane().add(playerSelector, BorderLayout.SOUTH);
 		
-		pack();
 		setLocationRelativeTo(null); // Centre window in middle of screen
 	}
 	
