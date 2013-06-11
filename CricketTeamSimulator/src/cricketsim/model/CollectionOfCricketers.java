@@ -21,7 +21,7 @@ public class CollectionOfCricketers {
 		int total = 0;
 			
 		for (Cricketer cricketer: cricketers) {
-			total += cricketer.getRuns();
+			total += cricketer.getTotalRuns();
 		}
 		
 		return total;

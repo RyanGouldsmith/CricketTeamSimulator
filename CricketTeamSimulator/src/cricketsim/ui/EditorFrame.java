@@ -193,19 +193,26 @@ public class EditorFrame extends JDialog {
 		
 		setLocationRelativeTo(null); // Centre window in middle of screen
 	}
+	
 	/**
-	 * Gets all the information from the form and creates a new Cricketer, setting all the information that it has from the form
+	 * Gets all the information from the form and creates a new Cricketer,
+	 * setting all the information that it has from the form
 	 */
 	protected void instanceCricketer(){
 		name = nameField.getText();
 		appearances = (int) appearanceSelector.getValue();
 		wickets = (int) wicketSelector.getValue();
 		totalRuns = (int) totalRunSelector.getValue();
+		
 		System.out.print(name + " " + gender + " " + position + " " + appearances + " " + wickets + " " + totalRuns);
-		Cricketer newCricketer = new Cricketer(name, gender, null, position);
+		
+		Cricketer newCricketer = new Cricketer();
+		newCricketer.setName(name);
+		newCricketer.setGender(gender);
+		newCricketer.setDateOfBirth(null);
+		newCricketer.setPosition(position);
 		newCricketer.setAppearances(appearances);
 		newCricketer.setWickets(wickets);
-		newCricketer.setRuns(totalRuns);
-		
+		newCricketer.setTotalRuns(totalRuns);
 	}
 }

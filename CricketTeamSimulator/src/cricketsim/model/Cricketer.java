@@ -12,7 +12,7 @@ public class Cricketer {
 	
 	/** Gender */
 	private Gender gender;
-	
+
 	/** Date of birth */
 	private Date dateOfBirth;
 	
@@ -28,41 +28,43 @@ public class Cricketer {
 	/** The total number of runs this player has made */
 	private int totalRuns;
 	
-	/**
-	 * Constructs a new cricket player.
-	 * @param name
-	 * @param gender
-	 * @param dateOfBirth
-	 * @param position
-	 */
-	public Cricketer(String name, Gender gender, Date dateOfBirth, Position position) {
-		this.name = name; 
-		this.gender = gender;
-		this.dateOfBirth = dateOfBirth; 
-		this.position = position;
-	}
-	
 	public String getName() {
 		return name;
 	}
 	
-	public Gender getGenger() {
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public Gender getGender() {
 		return gender;
+	}
+	
+	public void setGender(Gender gender) {
+		this.gender = gender;
 	}
 	
 	public Date getDateOfBirth() {
 		return dateOfBirth;
 	}
 	
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+	
 	public Position getPosition() {
 		return position;
 	}
 	
-	public int getRuns() {
+	public void setPosition(Position position) {
+		this.position = position;
+	}
+	
+	public int getTotalRuns() {
 		return totalRuns;
 	}
 	
-	public void setRuns(int runs) {
+	public void setTotalRuns(int runs) {
 		this.totalRuns = runs;
 	}
 	
