@@ -1,6 +1,5 @@
 package cricketsim.ui;
 
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JTextField;
@@ -10,27 +9,19 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.RowSpec;
-import java.awt.Choice;
-import java.awt.List;
-import javax.swing.JList;
-import javax.swing.AbstractListModel;
-import javax.swing.JTree;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JSpinner;
 import javax.swing.JLabel;
-import java.awt.Canvas;
 import java.awt.Color;
 import javax.swing.JEditorPane;
 import java.awt.Font;
-import com.jgoodies.forms.factories.DefaultComponentFactory;
-
-import cricketsim.model.Cricketer;
-
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class EditorFrame extends JDialog {
+	private static final long serialVersionUID = -2423031303102500557L;
+	
 	private JTextField nameField;
 	private String name = "";
 
