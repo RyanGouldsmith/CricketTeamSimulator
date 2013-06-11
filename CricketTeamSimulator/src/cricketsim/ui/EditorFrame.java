@@ -10,6 +10,9 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.RowSpec;
+
+import cricketsim.model.Position;
+
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JSpinner;
@@ -25,6 +28,12 @@ public class EditorFrame extends JDialog {
 	
 	private JTextField nameField;
 	private String name = "";
+	private JRadioButton maleRadioBtn;
+	private JRadioButton femaleRadioBtn;
+	private JComboBox<Position> positionCombo;
+	private JSpinner appearanceSelector;
+	private JSpinner wicketSelector;
+	private JSpinner totalRunSelector;
 
 	/**
 	 * Create the dialog.
@@ -81,12 +90,12 @@ public class EditorFrame extends JDialog {
 			getContentPane().add(genderLabel, "2, 6, left, center");
 		}
 		{
-			JRadioButton maleRadioBtn = new JRadioButton("Male");
+			maleRadioBtn = new JRadioButton("Male");
 			getContentPane().add(maleRadioBtn, "4, 6, left, top");
 			maleRadioBtn.setVerticalAlignment(SwingConstants.BOTTOM);
 		}
 		{
-			JRadioButton femaleRadioBtn = new JRadioButton("Female");
+			femaleRadioBtn = new JRadioButton("Female");
 			femaleRadioBtn.setVerticalAlignment(SwingConstants.TOP);
 			getContentPane().add(femaleRadioBtn, "6, 6, left, top");
 		}
@@ -95,8 +104,8 @@ public class EditorFrame extends JDialog {
 			getContentPane().add(positionLabel, "2, 8, fill, center");
 		}
 		{
-			JComboBox positionCombo = new JComboBox();
-			positionCombo.setModel(new DefaultComboBoxModel(new String[] {"A", "B", "E", "D"}));
+			positionCombo = new JComboBox<Position>();
+			positionCombo.setModel(new DefaultComboBoxModel<Position>());
 			getContentPane().add(positionCombo, "4, 8, 3, 1, fill, top");
 		}
 		{
@@ -104,7 +113,7 @@ public class EditorFrame extends JDialog {
 			getContentPane().add(appearanceLabel, "2, 10, fill, center");
 		}
 		{
-			JSpinner appearanceSelector = new JSpinner();
+			appearanceSelector = new JSpinner();
 			getContentPane().add(appearanceSelector, "4, 10, fill, top");
 		}
 		{
@@ -112,7 +121,7 @@ public class EditorFrame extends JDialog {
 			getContentPane().add(wicketsLabel, "2, 12, fill, center");
 		}
 		{
-			JSpinner wicketSelector = new JSpinner();
+			wicketSelector = new JSpinner();
 			getContentPane().add(wicketSelector, "4, 12, fill, top");
 		}
 		{
@@ -120,7 +129,7 @@ public class EditorFrame extends JDialog {
 			getContentPane().add(totalRunsLabel, "2, 14, left, center");
 		}
 		{
-			JSpinner totalRunSelector = new JSpinner();
+			totalRunSelector = new JSpinner();
 			getContentPane().add(totalRunSelector, "4, 14, fill, top");
 		}
 		{
@@ -128,8 +137,6 @@ public class EditorFrame extends JDialog {
 			okButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					getAllContents();
-					System.out.print(name);
-			
 				}
 			});
 			getContentPane().add(okButton, "4, 16, left, top");
@@ -140,6 +147,11 @@ public class EditorFrame extends JDialog {
 			JButton cancelButton = new JButton("Cancel");
 			getContentPane().add(cancelButton, "6, 16, left, top");
 			cancelButton.setActionCommand("Cancel");
+			cancelButton.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent e){
+					
+				}
+			});
 		}
 		
 		setLocationRelativeTo(null); // Centre window in middle of screen
@@ -147,6 +159,7 @@ public class EditorFrame extends JDialog {
 	
 	protected void getAllContents(){
 		name = nameField.getText();
+		
 		
 	}
 	
