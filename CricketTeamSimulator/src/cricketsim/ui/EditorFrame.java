@@ -11,6 +11,8 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.RowSpec;
 
+import cricketsim.model.Cricketer;
+import cricketsim.model.Gender;
 import cricketsim.model.Position;
 
 import javax.swing.JComboBox;
@@ -28,6 +30,11 @@ public class EditorFrame extends JDialog {
 	
 	private JTextField nameField;
 	private String name = "";
+	private Gender gender;
+	private Position position;
+	private int appearances;
+	private int wickets;
+	private int totalRuns;
 	private JRadioButton maleRadioBtn;
 	private JRadioButton femaleRadioBtn;
 	private JComboBox<Position> positionCombo;
@@ -82,8 +89,6 @@ public class EditorFrame extends JDialog {
 			nameField = new JTextField();
 			getContentPane().add(nameField, "4, 4, 3, 1, fill, top");
 			nameField.setColumns(10);
-			
-			
 		}
 		{
 			JLabel genderLabel = new JLabel("Gender");
@@ -93,11 +98,34 @@ public class EditorFrame extends JDialog {
 			maleRadioBtn = new JRadioButton("Male");
 			getContentPane().add(maleRadioBtn, "4, 6, left, top");
 			maleRadioBtn.setVerticalAlignment(SwingConstants.BOTTOM);
+			maleRadioBtn.addActionListener(new ActionListener(){
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					if (e.getSource() == maleRadioBtn){
+						gender = Gender.MALE;
+					}
+					
+				}
+				
+			});
 		}
 		{
 			femaleRadioBtn = new JRadioButton("Female");
 			femaleRadioBtn.setVerticalAlignment(SwingConstants.TOP);
 			getContentPane().add(femaleRadioBtn, "6, 6, left, top");
+			
+			maleRadioBtn.addActionListener(new ActionListener(){
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					if (e.getSource() == femaleRadioBtn){
+						gender = Gender.FEMALE;
+					}
+					
+				}
+				
+			});
 		}
 		{
 			JLabel positionLabel = new JLabel("Position");
@@ -105,8 +133,16 @@ public class EditorFrame extends JDialog {
 		}
 		{
 			positionCombo = new JComboBox<Position>();
-			positionCombo.setModel(new DefaultComboBoxModel<Position>());
+			positionCombo.setModel(new DefaultComboBoxModel<Position>(Position.values()));
 			getContentPane().add(positionCombo, "4, 8, 3, 1, fill, top");
+			positionCombo.addActionListener( new ActionListener(){
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					position = (Position) positionCombo.getSelectedItem();
+					
+				}
+				
+			});
 		}
 		{
 			JLabel appearanceLabel = new JLabel("Appearances");
@@ -136,7 +172,7 @@ public class EditorFrame extends JDialog {
 			JButton okButton = new JButton("OK");
 			okButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					getAllContents();
+					instanceCricketer();
 				}
 			});
 			getContentPane().add(okButton, "4, 16, left, top");
@@ -150,18 +186,26 @@ public class EditorFrame extends JDialog {
 			cancelButton.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e){
 					
+					
 				}
 			});
 		}
 		
 		setLocationRelativeTo(null); // Centre window in middle of screen
 	}
-	
-	protected void getAllContents(){
+	/**
+	 * Gets all the information from the form and creates a new Cricketer, setting all the information that it has from the form
+	 */
+	protected void instanceCricketer(){
 		name = nameField.getText();
-		
+		appearances = (int) appearanceSelector.getValue();
+		wickets = (int) wicketSelector.getValue();
+		totalRuns = (int) totalRunSelector.getValue();
+		System.out.print(name + " " + gender + " " + position + " " + appearances + " " + wickets + " " + totalRuns);
+		Cricketer newCricketer = new Cricketer(name, gender, null, position);
+		newCricketer.setAppearances(appearances);
+		newCricketer.setWickets(wickets);
+		newCricketer.setRuns(totalRuns);
 		
 	}
-	
-
 }
