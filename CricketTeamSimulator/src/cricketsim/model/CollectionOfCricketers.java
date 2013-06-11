@@ -43,20 +43,19 @@ public class CollectionOfCricketers {
 	public void add(Cricketer cricketer) {
 		cricketers.add(cricketer);
 	}
+	
 	/**
 	 * Removes the Cricketer from the list based on a search
 	 * @param searchedCricketer searches for the named cricketer
 	 * @throws CricketerNotFoundException if there is an error, and can't be found.
 	 */
-	
-	public void removeCricketer(Cricketer searchedCricketer) throws CricketerNotFoundException{
-		
-				for (Cricketer cricketer: cricketers){
-						if (cricketer.equals(searchedCricketer)){
-								cricketers.remove(searchedCricketer);
-						} 
-				}
-			}
+	public void removeCricketer(Cricketer searchedCricketer) throws CricketerNotFoundException{	
+		for (Cricketer cricketer: cricketers){
+			if (cricketer.equals(searchedCricketer)){
+				cricketers.remove(searchedCricketer);
+			} 
+		}
+	}
 	
 	/**
 	 * Gets the team's average runs.
@@ -85,15 +84,18 @@ public class CollectionOfCricketers {
 		
 		return appearance;
 	}
+	
 	/**
 	 * Gets the total number of wickets of all the cricketers
 	 * @return the total number of wickets
 	 */
 	public int getTotalWickets(){
 		int wicketTotal = 0;
+		
 		for (Cricketer cricketer: cricketers){
 			wicketTotal += cricketer.getWickets();
 		}
+		
 		return wicketTotal;
 	}
 }
