@@ -2,6 +2,7 @@ package cricketsim.ui;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
@@ -28,8 +29,10 @@ public class EditorFrame extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public EditorFrame() {
+	public EditorFrame(JFrame owner) {
+		super(owner, true);
 		setBounds(100, 100, 305, 342);
+		
 		getContentPane().setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.RELATED_GAP_COLSPEC,
 				ColumnSpec.decode("106px"),

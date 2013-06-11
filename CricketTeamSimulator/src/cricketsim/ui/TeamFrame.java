@@ -107,10 +107,12 @@ public class TeamFrame extends JFrame {
 	 * Open the editor window to add a new cricketer to the list
 	 */
 	private void addCricketer() {
+		final JFrame owner = this;
+		
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				EditorFrame window = new EditorFrame();
+				EditorFrame window = new EditorFrame(owner);
 				window.setVisible(true);
 			}
 		});
@@ -125,10 +127,12 @@ public class TeamFrame extends JFrame {
 	 * @param cricketer the selected cricketer
 	 */
 	private void editCricketer(final Cricketer cricketer) {
+		final JFrame owner = this;
+		
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				EditorFrame window = new EditorFrame();
+				EditorFrame window = new EditorFrame(owner);
 				window.setVisible(true);
 			}
 		});
