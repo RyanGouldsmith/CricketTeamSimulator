@@ -175,7 +175,7 @@ public class TeamFrame extends JFrame {
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				EditorFrame window = new EditorFrame(owner);
+				EditorFrame window = new EditorFrame(owner, cricketerCollection);
 				window.setVisible(true);
 			}
 		});
@@ -195,7 +195,7 @@ public class TeamFrame extends JFrame {
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				EditorFrame window = new EditorFrame(owner);
+				EditorFrame window = new EditorFrame(owner, cricketerCollection);
 				window.setVisible(true);
 			}
 		});
