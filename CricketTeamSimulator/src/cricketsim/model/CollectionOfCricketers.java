@@ -36,6 +36,9 @@ public class CollectionOfCricketers {
 		return cricketers.get(index);
 	}
 	
+	public String listOfCricketers(){
+		return cricketers.toString();
+	}
 	/**
 	 * Add a cricketer to the list
 	 * @param cricketer cricketer to be added to the list
