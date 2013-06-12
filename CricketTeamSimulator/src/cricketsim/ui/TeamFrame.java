@@ -1,5 +1,6 @@
 package cricketsim.ui;
 
+import java.awt.Dimension;
 import java.util.List;
 
 import javax.swing.JFrame;
@@ -21,6 +22,7 @@ public class TeamFrame extends JFrame {
 	 */
 	public TeamFrame(TeamType type, List<Cricketer> cricketers) {
 		setTitle("Best " + type + " Team");
+		setMinimumSize(new Dimension(400, 450));
 		
 		setLocationRelativeTo(null); // Centre window in middle of screen
 	}
