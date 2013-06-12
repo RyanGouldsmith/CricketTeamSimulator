@@ -70,14 +70,17 @@ public class TeamFrame extends JFrame {
 	}
 	
 	private String[][] generateTable(List<Cricketer> cricketers) {
-		// TODO
+		String[][] tableData = new String[cricketers.size()][3];
+		Cricketer cricketer;
 		
-		// XXX: Test data
-		String[][] foo = {
-			{"Ryan Gouldsmith", "19", "Foo"},
-			{"Josh Tumath", "19", "Bar"}
-		};
+		for (int i = 0; i < cricketers.size(); i++) {
+			cricketer = cricketers.get(i);
+			
+			tableData[i][0] = cricketer.getName();
+			tableData[i][1] = "null"; // FIXME: Calculate age from the date
+			tableData[i][2] = cricketer.getPosition().toString();
+		}
 		
-		return foo;
+		return tableData;
 	}
 }
