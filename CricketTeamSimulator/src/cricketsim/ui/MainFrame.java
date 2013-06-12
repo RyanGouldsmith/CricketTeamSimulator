@@ -133,14 +133,27 @@ public class MainFrame extends JFrame {
 
 		JLabel lblTypeOfTeam = new JLabel("Type of team:");
 		JButton btnAttack = new JButton("Attack...");
-		btn.addActionListener(new ActionListener() {
+		btnAttack.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				openTeamFrame(TeamType.ATTACK);
+					openTeamFrame(TeamType.ATTACK);		
 			}
 		});
 		JButton btnDefence = new JButton("Defence...");
+		btnDefence.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				openTeamFrame(TeamType.DEFENSE);
+			}
+			
+		});
 		JButton btnNeutral = new JButton("Neutral...");
+		btnNeutral.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				openTeamFrame(TeamType.NEUTRAL);
+			}
+		});
 
 		GroupLayout groupLayout = new GroupLayout(playerSelector);
 		groupLayout.setHorizontalGroup(
@@ -239,7 +252,10 @@ public class MainFrame extends JFrame {
 	private void deleteCricketer(final Cricketer cricketer) throws CricketerNotFoundException {
 		cricketerCollection.removeCricketer(cricketer);
 	}
-	
+	/**
+	 * Opens the Team Window, displaying the best team based on Attacking, Neutral or Defensive choice
+	 * @param type is the type of team style.
+	 */
 	private void openTeamFrame(final TeamType type) {
 		List<Cricketer> team;
 		
