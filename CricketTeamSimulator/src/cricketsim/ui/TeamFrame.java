@@ -58,6 +58,7 @@ public class TeamFrame extends JFrame {
 				"Age",
 				"Position"};
 		JTable table = new JTable(generateTable(cricketers), columnNames);
+		table.setEnabled(false);
 		JScrollPane tableScroll = new JScrollPane(table);
 		contentPane.add(tableScroll, BorderLayout.CENTER);
 		
