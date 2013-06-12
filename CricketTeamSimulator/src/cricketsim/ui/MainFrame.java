@@ -102,7 +102,7 @@ public class MainFrame extends JFrame {
 		btn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ImportCricketer c = new ImportCricketer();
+				ImportCricketer c = new ImportCricketer(cricketerCollection);
 				
 				try {
 					c.readCricketers();
