@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -27,6 +28,7 @@ import javax.swing.border.TitledBorder;
 import cricketsim.model.CollectionOfCricketers;
 import cricketsim.model.Cricketer;
 import cricketsim.model.CricketerNotFoundException;
+import cricketsim.model.ImportCricketer;
 
 /**
  * The frame where the user can manage the team of cricketers
@@ -87,7 +89,25 @@ public class TeamFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					deleteCricketer(null);
-				} catch (CricketerNotFoundException e1) {
+				} catch (CricketerNotFoundException ex) {
+					ex.printStackTrace();
+				}
+			}
+		});
+		teamManagerControls.add(btn);
+		
+		teamManagerControls.add(Box.createVerticalStrut(5));
+		
+		btn = new JButton("Import");
+		btn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ImportCricketer c = new ImportCricketer();
+				
+				try {
+					c.readCricketers();
+				} catch (IOException ex) {
+					ex.printStackTrace();
 				}
 			}
 		});
