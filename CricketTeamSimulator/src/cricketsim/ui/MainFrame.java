@@ -35,7 +35,7 @@ import cricketsim.model.ImportCricketer;
  * @author Ryan Gouldsmith (ryangouldsmith@gmail.com)
  * @author Josh Tumath (josh@joshtumath.me.uk)
  */
-public class TeamFrame extends JFrame {
+public class MainFrame extends JFrame {
 	private static final long serialVersionUID = -4850706096538947479L;
 	
 	private DefaultListModel<CollectionOfCricketers> cricketerList = new DefaultListModel<CollectionOfCricketers>();
@@ -43,7 +43,7 @@ public class TeamFrame extends JFrame {
 	/**
 	 * Construct a new window to manage a team of cricketers
 	 */
-	public TeamFrame() {
+	public MainFrame() {
 		setTitle("Cricket Team Simulator");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setMinimumSize(new Dimension(400, 450));
