@@ -1,9 +1,12 @@
 package cricketsim;
 
+import java.io.IOException;
+
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import cricketsim.model.ImportCricketer;
 import cricketsim.ui.TeamFrame;
 
 /**
@@ -24,6 +27,12 @@ public class Main {
 			public void run() {
 				TeamFrame mainWindow = new TeamFrame();
 				mainWindow.setVisible(true);
+				ImportCricketer c = new ImportCricketer();
+				try {
+					c.readCricketers();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		});
 	}
