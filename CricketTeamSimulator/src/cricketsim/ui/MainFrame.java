@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.List;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -132,6 +133,12 @@ public class MainFrame extends JFrame {
 
 		JLabel lblTypeOfTeam = new JLabel("Type of team:");
 		JButton btnAttack = new JButton("Attack...");
+		btn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				openTeamFrame(TeamType.ATTACK);
+			}
+		});
 		JButton btnDefence = new JButton("Defence...");
 		JButton btnNeutral = new JButton("Neutral...");
 
@@ -231,5 +238,33 @@ public class MainFrame extends JFrame {
 	 */
 	private void deleteCricketer(final Cricketer cricketer) throws CricketerNotFoundException {
 		cricketerCollection.removeCricketer(cricketer);
+	}
+	
+	private void openTeamFrame(final TeamType type) {
+		List<Cricketer> team;
+		
+		switch(type) {
+		case ATTACK:
+			team = cricketerCollection.attackingTeam();
+			break;
+		case DEFENSE:
+			team = cricketerCollection.defensiveTeam();
+			break;
+		case NEUTRAL:
+			team = cricketerCollection.neutralTeam();
+		default:
+			team = null;
+			break;
+		}
+		
+		final List<Cricketer> finalTeam = team;
+		
+		SwingUtilities.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				TeamFrame window = new TeamFrame(type, finalTeam);
+				window.setVisible(true);
+			}
+		});
 	}
 }

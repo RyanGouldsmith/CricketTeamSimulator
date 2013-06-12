@@ -12,9 +12,7 @@ import java.util.List;
 public class CollectionOfCricketers {
 	/** List of cricketers */
 	private List<Cricketer> cricketers = new ArrayList<Cricketer>();
-	private List<Cricketer> attackingCricketers = new ArrayList<Cricketer>();
-	private List<Cricketer> neutralCricketers = new ArrayList<Cricketer>();
-	private List<Cricketer> defensiveCricketers = new ArrayList<Cricketer>();
+	
 	/**
 	 * Get the total runs of all cricketers.
 	 * @return the total runs of all cricketers
@@ -100,34 +98,52 @@ public class CollectionOfCricketers {
 		
 		return wicketTotal;
 	}
+	
 	/**
-	 * Works out from the list of cricketers which would be the best attacking team, putting them in an attacking list
+	 * Works out from the list of cricketers which would be the best attacking
+	 * team, putting them in an attacking list
 	 */
-	public void attackingTeam(){
+	public List<Cricketer> attackingTeam() {
+		List<Cricketer> attackingCricketers = new ArrayList<Cricketer>();
+		
 		for (Cricketer cricketer: cricketers){
 			if(cricketer.getAverageRuns() > 50 && cricketer.getAppearances() > 10){
 				attackingCricketers.add(cricketer);
 			}
 		}
+		
+		return attackingCricketers;
 	}
+	
 	/**
-	 * Works out from the list of cricketers which would be the best defensive team, putting them in a defensive list
+	 * Works out from the list of cricketers which would be the best defensive
+	 * team, putting them in a defensive list
 	 */
-	public void defensiveTeam(){
+	public List<Cricketer> defensiveTeam() {
+		List<Cricketer> defensiveCricketers = new ArrayList<Cricketer>();
+		
 		for (Cricketer cricketer: cricketers){
 			if(cricketer.getAverageRuns() > 20 && cricketer.getAverageRuns() < 50 || cricketer.getWickets() > 15){
-				neutralCricketers.add(cricketer);
-			}
-		}
-	}
-	/**
-	 * Works out from the list of cricketers which would be the best neutral team, putting them in a neutral list
-	 */
-	public void neutralTeam(){
-		for (Cricketer cricketer: cricketers){
-			if (cricketer.getAverageRuns() > 15 && cricketer.getAverageRuns() <35 || cricketer.getWickets() > 25){
 				defensiveCricketers.add(cricketer);
 			}
 		}
+		
+		return defensiveCricketers;
+	}
+	
+	/**
+	 * Works out from the list of cricketers which would be the best neutral
+	 * team, putting them in a neutral list
+	 */
+	public List<Cricketer> neutralTeam() {
+		List<Cricketer> neutralCricketers = new ArrayList<Cricketer>();
+		
+		for (Cricketer cricketer: cricketers){
+			if (cricketer.getAverageRuns() > 15 && cricketer.getAverageRuns() <35 || cricketer.getWickets() > 25){
+				neutralCricketers.add(cricketer);
+			}
+		}
+		
+		return neutralCricketers;
 	}
 }
